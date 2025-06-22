@@ -650,10 +650,11 @@
 
             <p><strong>Gesture Controls:</strong></p>
             <div class="instructions-list" style="text-align: left; margin: 15px 0;">
-                <p>✋ <strong>Left gesture</strong> - Move car left</p>
-                <p>✋ <strong>Right gesture</strong> - Move car right</p>
-                <p>✋ <strong>Up gesture</strong> - Move car up</p>
-                <p>✋ <strong>Down gesture</strong> - Move car down</p>
+                <p>🔄 <strong>Head Up</strong> - Increase car speed</p>
+                <p>🔄 <strong>Head Down</strong> - Decrease car speed</p>
+                <p>↔️ <strong>Head Left</strong> - Move car left</p>
+                <p>↔️ <strong>Head Right</strong> - Move car right</p>
+                <p>⬆️ <strong>Neutral</strong> - Maintain current speed/position</p>
             </div>
 
             <div class="button-group">
@@ -679,7 +680,7 @@
 
             <div class="webcam-permission-info">
                 <h4>🎯 Game Instructions</h4>
-                <p>Use hand gestures to control your car and avoid obstacles. Your score increases as you survive longer!</p>
+                <p>Use head gestures to control your car and avoid obstacles. Your score increases as you survive longer!</p>
             </div>
 
             <div class="button-group">
@@ -1085,7 +1086,7 @@
                 if (highestPrediction.probability > 0.7) {
                     currentGesture = highestPrediction.className.toLowerCase();
                     gestureConfidence = highestPrediction.probability;
-                    handleGestureControl(currentGesture);
+                    headleGestureControl(currentGesture);
                 } else {
                     stopAllMovement();
                 }
@@ -1117,7 +1118,7 @@
             }
         }
 
-        function handleGestureControl(gesture) {
+        function headleGestureControl(gesture) {
             if (game_over) return;
             
             // Stop all current movements first
